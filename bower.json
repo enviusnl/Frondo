@@ -1,0 +1,6 @@
+{
+  "name": "foundation-libsass-gulp-template",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation"
+  }
+}

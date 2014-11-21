@@ -1,0 +1,66 @@
+//Colors
+$white: #F2F2F2;
+$white-hover: darken($white, 5%);
+
+$grey-1: darken($white, 10%);
+$grey-2: darken($white, 20%);
+$grey-3: darken($white, 30%);
+$grey-4: darken($white, 40%);
+$grey-5: darken($white, 50%);
+$grey-6: darken($white, 60%);
+$grey-7: darken($white, 70%);
+$grey-8: darken($white, 80%);
+$grey-9: darken($white, 90%);
+
+$black: #000;
+
+$accent: #31aec9;
+$accent-dark: #2892ab;
+
+
+$base-color: $grey-8;
+$base-color-alt: $white;
+
+$error-red: #EB4150;
+
+
+//Typography
+$body-family: 'freight-sans-pro', Helvetica, Arial, sans-serif;
+$body-weight: 300;
+$body-weight-bold: 400;
+$body-line-height: 1.5em;
+
+$heading-family: 'freight-sans-pro', Helvetica, Arial, sans-serif;
+$heading-weight: 300;
+$heading-line-height: 1.3em;
+
+$list-line-height: 1.8em;
+
+$size-s: .9em;
+$size-m: 16px;
+$size-l: 1.1em;
+
+
+//Spacings
+$margin-xxs: 10px; //LI > SPAN RIGHT
+$margin-xs: 20px; //LI BEFORE/FOOTER
+$margin-s: 30px; //H1... P
+$margin-m: 40px; //LOGOS
+$margin-l: 70px; //SECTIONS
+$margin-xl: 120px; //SECTIONS
+
+$padding-s: 8px 15px;
+
+
+//Borders
+$border-style: solid;
+$border-style-alt: dashed;
+$border-size: 1px;
+$border-radius: 5px;
+
+//Transitions
+$transition-duration: .3s;
+$transition-timing: ease;
+
+//Opacities
+$opacity: .5;
