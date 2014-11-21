@@ -1,6 +1,6 @@
 {
-  "name": "gulp_workflow",
-  "version": "1.0.1",
+  "name": "Frondo",
+  "version": "1.0.0",
   "description": "Automated Gulp workflow",
   "main": "gulpfile.js",
   "devDependencies": {
