@@ -1,0 +1,23 @@
+.col {
+	@include column(12);
+}
+
+@media all and (min-width: $tablet-container-width) and (max-width: $desktop-container-width) {
+
+	.col {
+		&.tablet-6 {
+			@include column(6);
+		}
+	}
+
+}
+
+@media all and (min-width: $desktop-container-width) {
+
+	.col {
+		&.desktop-4 {
+			@include column(4);
+		}
+	}
+
+}

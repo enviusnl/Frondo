@@ -1,0 +1,75 @@
+include _mixins
+
+doctype html
+html(lang="en")
+
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    meta(name="viewport", content="initial-scale=1, user-scalable=no")
+
+    block pageVars
+    - var prettyPageTitle = pageTitle !== '' ? pageTitle+' | Envius, Digitaal Maatwerk' : 'Envius, Digitaal Maatwerk'
+    title #{prettyPageTitle}
+    meta(name="description" content="#{pageDescription}")
+
+    meta(name="author" content="Envius")
+    meta(name="follow" content="index, follow")
+
+    meta(property="og:site_name", content="Envius")
+    meta(property="og:locale", content="nl_NL")
+    meta(property="og:type", content="website")
+    meta(property="og:description", content="#{pageDescription}")
+    meta(property="og:url", content="http://www.envius.nl")
+    meta(property="og:title", content="#{prettyPageTitle}")
+    meta(property="og:image", content="http://envius.nl/assets/img/envius-og.png")
+
+    meta(property="fb:app_id" content="874882852535587")
+
+    meta(name="twitter:card" content="summary")
+    meta(name="twitter:site" content="@enviusnl")
+    meta(name="twitter:url" content="http://www.envius.nl")
+    meta(name="twitter:title" content="#{prettyPageTitle}")
+    meta(name="twitter:description" content="#{pageDescription}")
+    meta(name="twitter:image" content="http://envius.nl/assets/img/envius-og.png")
+
+    link(rel="shortcut icon" href="/assets/favicons/favicon.ico")
+    link(rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png")
+    link(rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-touch-icon-114x114.png")
+    link(rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-touch-icon-72x72.png")
+    link(rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-touch-icon-144x144.png")
+    link(rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png")
+    link(rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-touch-icon-120x120.png")
+    link(rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-touch-icon-76x76.png")
+    link(rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-touch-icon-152x152.png")
+    link(rel="icon" type="image/png" href="/assets/favicons/favicon-196x196.png" sizes="196x196")
+    link(rel="icon" type="image/png" href="/assets/favicons/favicon-160x160.png" sizes="160x160")
+    link(rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96")
+    link(rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16")
+    link(rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32")
+    meta(name="msapplication-TileColor" content="#da532c")
+    meta(name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png")
+    meta(name="msapplication-config" content="/assets/favicons/browserconfig.xml")
+
+    link(rel="stylesheet" href="/css/bundle.min.css")
+
+    <!--[if IE 8]>
+    script(src='js/libs/html5shiv.min.js')
+    <![endif]-->
+
+    //typekit
+    script.
+      (function(d) {
+        var config = {
+          kitId: 'nfz7sqg',
+          scriptTimeout: 3000
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+
+  body
+    include header
+
+    block pageContent
+    
+    include footer

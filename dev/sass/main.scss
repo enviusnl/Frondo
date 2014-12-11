@@ -1,26 +1,9 @@
-//SYSTEM
+//Modules
+@import "modules/_vars";
+@import "modules/_mixins";
 
-// Variables
-@import "system/vars";
+//Vendor
+@import "vendor/semantic-gs";
 
-// Grid
-@import "system/grid";
-
-
-//GLOBAL
-
-// Typography
-@import "typography";
-
-// Theme
-@import "theme";
-
-// Media
-// @import "media";
-
-
-//ELEMENTS
-
-// Header & Footer
-@import "elements/header-footer";
-
+//Partials
+@import "partials/_all";

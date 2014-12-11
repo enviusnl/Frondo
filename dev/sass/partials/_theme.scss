@@ -1,0 +1,21 @@
+* {
+	box-sizing: border-box;
+}
+
+html,body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: $body-weight $size-m $body-family;
+	color: $base-color;
+
+	line-height: $body-line-height;
+}
+
+.container {
+	width: $main-container-width;
+	margin: 0 auto;
+	overflow: hidden;
+}

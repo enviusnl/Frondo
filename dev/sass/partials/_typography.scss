@@ -1,0 +1,123 @@
+::selection {
+	background-color: lighten($accent, 30%);
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,ol,li,img,blockquote {
+	margin: 0;
+	padding: 0;
+}
+
+p,ul,ol,img,blockquote {
+	margin-bottom: $margin-m;
+}
+
+img {
+	max-width: 100%;
+}
+
+p {
+	img {
+		margin-bottom: 0;
+	}
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: $heading-family;
+	font-weight: $heading-weight;
+	line-height: $heading-line-height;
+	margin-bottom: $margin-s;
+}
+
+h1 {
+	font-size: 2.2em;
+}
+h2 {
+	font-size: 1.8em;
+}
+h3 {
+	font-size: 1.6em;
+}
+h4 {
+	font-size: 1.4em;
+}
+h5,p.intro {
+	font-size: 1.2em;
+}
+h6 {
+	font-size: 1.1em;
+}
+
+p.intro {
+	font-weight: $body-weight;
+	line-height: $body-line-height;
+}
+
+b, strong {
+	font-weight: $body-weight-bold;
+}
+
+small {
+	font-size: $size-s;
+}
+
+a {
+	color: $base-color;
+
+	&:hover {
+		color: $accent-dark;
+	}
+}
+
+a.btn,input[type="submit"] {
+	display: block;
+	padding: $padding-s;
+
+	background-color: $accent;
+	color: $white;
+
+	@include border(false, $accent-dark);
+	border-radius: $border-radius;
+
+	&:hover {
+		background-color: $accent-dark;
+	}
+}
+
+ul {
+	padding-left: 17px;
+	li {
+		list-style-type: disc;
+		margin-bottom: $margin-xs;
+	}
+}
+
+ol {
+	padding-left: 34px;
+	counter-reset: item-idx;
+
+	li {
+		display: block;
+		counter-increment: item-idx;
+		margin-bottom: $margin-xs;
+		margin-left: -34px;
+
+		&:before {
+			content: counter(item-idx)'.';
+			margin-right: $margin-s;
+		}
+	}
+
+}
+
+blockquote {
+	p {
+		margin-bottom: 0;
+	}
+
+	font-style: italic;
+	color: $white;
+	background-color: $accent;
+	border-radius: $border-radius;
+
+	padding: $padding-m;
+}

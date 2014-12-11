@@ -1,5 +1,2 @@
-bower_components/
+.DS_Store
 node_modules/
-www/*.html
-www/css/*.css
-www/js/*.js

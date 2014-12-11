@@ -1,0 +1,50 @@
+$main-container-width: 90%;
+$tablet-container-width: 768px;
+$desktop-container-width: 1024px;
+
+
+//COLORS
+$base-color: #484848;
+$white: #fff;
+
+$accent: #2892ab;
+$accent-dark: darken($accent, 5%);
+
+$grey: #748f95;
+$grey-light: #e1e7e8;
+
+
+//TYPOGRAPHY
+$body-family: Helvetica, Arial, sans-serif;
+$body-weight: 300;
+$body-weight-bold: 500;
+$body-line-height: 1.5em;
+
+$heading-family: Helvetica, Arial, sans-serif;
+$heading-weight: 300;
+$heading-line-height: 1.5em;
+
+$size-s: 0.9em;
+$size-m: 16px;
+
+
+//SPACING
+$margin-xs: 5px;
+$margin-s: 10px;
+$margin-m: 20px;
+$margin-l: 40px;
+$margin-xl: 80px;
+
+$padding-s: $margin-s $margin-s+5;
+$padding-m: $margin-m;
+
+
+//BORDERS
+$border-style: solid;
+$border-width: 1px;
+$border-radius: 0;
+
+
+//ANIMATIONS
+$transition-duration: .3s;
+$transition-timing: ease;

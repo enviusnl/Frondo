@@ -1,0 +1,9 @@
+//Parses the specified JSON object into nav items
+mixin getNavItems(pagesJSON)
+  each name, href in pagesJSON
+    if pageTitle === name
+      a(href="/#{href}").active
+        li= name
+    else
+      a(href="/#{href}")
+        li= name

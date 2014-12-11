@@ -1,6 +1,53 @@
-include inc/header.jade
+extends inc/template
+block pageVars
+  - var pageTitle = ""
+  - var pageDescription = ""
 
-//- Content
+block pageContent
+  .container
+    article.col.tablet-6.desktop-4
+      ul
+        +getNavItems({"":"Home", "over-ons":"Over ons", "diensten":"Diensten", "werk":"Werk", "contact":"Contact"})
+      :markdown
+        # Hi Dude
+        ## Hi Dude
+        ### Hi Dude
+        #### Hi Dude
+        ##### Hi Dude
+        ###### Hi Dude
 
+        New the her nor case that lady paid *read*. Invitation **friendship** [travelling](http://google.com) eat everything the out two. Shy you who scarcely expenses 
+        debating hastened resolved. Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an 
+        ittle remain no up lively no. Way brought may off our regular country towards adapted cheered.
 
-include inc/footer.jade
+        > To projection considered it precaution an melancholy or. Wound young you thing worse along being ham.
+
+    article.col.tablet-6.desktop-4
+      :markdown
+        By so delight of showing neither believe he present. Deal sigh up in shew away when. Pursuit express no or prepare replied. Wholly formed 
+        old latter future but way she. Day her likewise smallest expenses judgment building man carriage gay. Considered introduced themselves mr 
+        to discretion at. Means among saw hopes for. Death mirth in oh learn he equal on. 
+
+        ![Fig 1.1, Placeholder](http://placehold.it/400x300)
+
+        Received overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so 
+        addition branched. Put hearing cottage she norland letters equally prepare too. Replied exposed savings he no viewing as up. Soon body 
+        add him hill. No father living really people estate if. Mistake do produce beloved demesne if am pursuit.
+
+        * Produce
+        * Demesne
+        * Separate
+        * Received
+
+        By so delight of showing neither believe he present. Deal sigh up in shew away when. Pursuit express no or prepare replied. Wholly formed 
+        old latter future but way she. Day her likewise smallest expenses judgment building man carriage gay. Considered introduced themselves mr 
+        to discretion at. Means among saw hopes for. Death mirth in oh learn he equal on.
+
+        1. Produce
+        2. Demesne
+        3. Separate
+        4. Received
+
+        New the her nor case that lady paid *read*. Invitation **friendship** [travelling](http://google.com) eat everything the out two. Shy you who scarcely expenses 
+        debating hastened resolved. Always polite moment on is warmth spirit it to hearts. Downs those still witty an balls so chief so. Moment an 
+        ittle remain no up lively no. Way brought may off our regular country towards adapted cheered.
