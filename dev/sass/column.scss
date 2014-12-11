@@ -32,34 +32,34 @@
 	}
 
 	@media $screen and $mobile {
-		.col-1 {
+		&.col-1 {
 			@include column(1);
 		}
-		.col-2 {
+		&.col-2 {
 			@include column(2);
 		}
-		.col-3 {
+		&.col-3 {
 			@include column(3);
 		}
-		.col-4 {
+		&.col-4 {
 			@include column(4);
 		}
-		.col-5 {
+		&.col-5 {
 			@include column(5);
 		}
-		.col-6 {
+		&.col-6 {
 			@include column(6);
 		}
-		.col-7 {
+		&.col-7 {
 			@include column(7);
 		}
-		.col-8 {
+		&.col-8 {
 			@include column(8);
 		}
-		.col-9 {
+		&.col-9 {
 			@include column(9);
 		}
-		.col-10 {
+		&.col-10 {
 			@include column(10);
 		}
 	}
