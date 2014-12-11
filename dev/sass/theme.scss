@@ -10,7 +10,7 @@ html,body {
 body {
 	font: $body-weight $size-m $body-family;
 	color: $base-color;
-	background-color: $accent;
+	background-color: $primary;
 }
 
 img {
@@ -20,8 +20,4 @@ img {
 .container {
 	width: 960px;
 	margin: 0 auto;
-}
-
-section {
-	overflow: hidden;
 }

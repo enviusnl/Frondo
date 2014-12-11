@@ -1,0 +1,84 @@
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, img, pre {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, blockquote {
+  font-family: "Font", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.3em;
+  margin-bottom: 30px;
+}
+
+h1, blockquote {
+  font-size: 2.6em;
+}
+
+h2 {
+  font-size: 2.2em;
+}
+
+h3 {
+  font-size: 1.8em;
+}
+
+h4 {
+  font-size: 1.4em;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+h6 {
+  font-size: 1.1em;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+p, ul, ol, blockquote, pre {
+  margin-bottom: 30px;
+}
+
+b {
+  font-weight: 400;
+}
+
+u {
+  text-decoration: none;
+  border-bottom: dashed 1px #333333;
+}
+
+small {
+  font-size: 0.9em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 300 16px "Font", Helvetica, Arial, sans-serif;
+  color: #333333;
+  background-color: #31aec9;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+section {
+  overflow: hidden;
+}

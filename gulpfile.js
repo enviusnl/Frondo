@@ -3,14 +3,17 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     jade = require('gulp-jade'),
     sass = require('gulp-sass'),
+    compass = require('gulp-compass'),
     prefix = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
+    concatcss = require('gulp-concat-css');
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
+    addsrc = require('gulp-add-src'),
     plumber = require('gulp-plumber'),
     connect = require('gulp-connect'),
     open = require('gulp-open'),
@@ -20,7 +23,8 @@ var gulp = require('gulp'),
 // Base paths
 var src = 'dev/',
     dest = 'www/',
-    libs = 'bower_components/';
+    libs = 'bower_components/',
+    fonts = dest + 'fonts/';
 
 // Folder paths
 var path = {
@@ -53,11 +57,11 @@ var files = {
     dest: path.style.dest + '*.css'
   },
   script: {
-    src: path.script.src + '*.js',
+    src: path.script.src + '**/*.js',
     dest: path.script.dest  + '*.js'
   },
   image: {
-    src: path.image.src + '*',
+    src: path.image.src + '*/**',
     dest: path.image.dest + '*'
   }
 };
@@ -105,7 +109,7 @@ gulp.task('jade', function() {
 // Sass > CSS (Prefixed + Minified)
 gulp.task('sass', function() {
   return gulp.src(path.style.src + 'main.scss')
-    .pipe(plumber({errorHandler: onError}))
+    .pipe(plumber({ errorHandler: onError }))
     .pipe(sass({ style: 'expanded', includePaths: [libs + 'foundation/scss']}))
     .pipe(notify({ title: 'Done', message: 'Converted SASS ✔' }))
     .pipe(prefix({ browsers: ['last 20 version'], cascade: false }))
@@ -115,18 +119,42 @@ gulp.task('sass', function() {
     .pipe(minifycss())
     .pipe(notify({ title: 'Done', message: 'Minified CSS ✔' }))
     .pipe(gulp.dest(path.style.dest))
+    .pipe(addsrc([fonts + '**/*.css', path.style.dest + 'main.css']))
+    .pipe(concatcss('bundle.css'))
+    .pipe(notify({ title: 'Done', message: 'Bundled all CSS ✔' }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(minifycss())
+    .pipe(gulp.dest(path.style.dest))
     .pipe(connect.reload());
 });
 
+// gulp.task('sass', function() {
+//   return gulp.src( files.style.src )
+//     .pipe(compass({
+//       sass: files.style.src,
+//       require: ['susy']
+//     }))
+//     .pipe(minifycss())
+//     .pipe(gulp.dest( path.style.dest ))
+//     .pipe(notify({ title: 'Done', message: 'Bundled all CSS ✔' }))
+//     .pipe(connect.reload());
+// });
+
+
 // Scripts 
 gulp.task('scripts', function() {
-  return gulp.src(files.script.src)
+  return gulp.src([path.script.src + 'general/libs/*.js', path.script.src + 'general/*.js'])
     .pipe(concat('main.js'))
-    .pipe(gulp.dest(path.script.dest))
+    .pipe(gulp.dest( path.script.dest ))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
-    .pipe(gulp.dest(path.script.dest))
-    .pipe(notify({ title: 'Done', message: 'Converted JS ✔' }))
+    .pipe(gulp.dest( path.script.dest ))
+    .pipe(notify({ title: 'Done', message: 'Converted Main JS ✔' }))
+    .pipe(addsrc( path.script.src + 'inline/*.js' ))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(uglify())
+    .pipe(gulp.dest( path.script.src + 'inline/output/' ))
+    .pipe(notify({ title: 'Done', message: 'Minified Inline JS ✔' }))
     .pipe(connect.reload());
 });
  
