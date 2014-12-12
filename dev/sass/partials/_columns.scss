@@ -1,10 +1,7 @@
 .col {
 	@include column(12);
-}
 
-@include media(map-get($container-widths, "tablet"), map-get($container-widths, "desktop")) {
-
-	.col {
+	@include media(map-get($container-widths, "tablet"), map-get($container-widths, "desktop")) {
 		@each $col-size in $grid-cols {
 			&.tablet-#{$col-size} {
 				@include column(6);
@@ -12,16 +9,11 @@
 		}
 	}
 
-}
-
-@include media(map-get($container-widths, "desktop")) {
-
-	.col {
+	@include media(map-get($container-widths, "desktop")) {
 		@each $col-size in $grid-cols {
 			&.desktop-#{$col-size} {
 				@include column($col-size);
 			}
 		}
 	}
-
 }

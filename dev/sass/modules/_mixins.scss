@@ -18,14 +18,24 @@
 }
 
 //Media queries
-@mixin media($min-w, $max-w:false){
-	@if $max-w {
-		@media all and (min-width: $min-w) and (max-width: $max-w) {
+@mixin media($min-width:false, $max-width:false, $type: all){
+	@if $min-width and $max-width {
+
+		@media #{$type} and (min-width: $min-width) and (max-width: $max-width) {
 			@content;
 		}
-	} @else {
-		@media all and (min-width: $min-w) {
+
+	} @else if not $min-width and $max-width {
+
+		@media #{$type} and (max-width: $min-width) {
 			@content;
 		}
+
+	} @else if $min-width and not $max-width {
+
+		@media #{$type} and (min-width: $min-width) {
+			@content;
+		}
+
 	}
 }
