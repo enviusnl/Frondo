@@ -59,10 +59,10 @@ module.exports = function (grunt){
 
 
 		sass: {
-			options: {
-      	style: 'compressed'
-    	},
 			dist: {
+				options: {
+	      	style: 'compressed'
+	    	},
 				files: {
 					'<%= options.webRoot %>/css/bundle.min.css': '<%= options.devRoot %>/sass/main.scss'
 				}

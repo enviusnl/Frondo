@@ -16,3 +16,16 @@
 @mixin animation($name, $seconds, $delay:0s){
 	animation: $name $seconds infinite alternate $delay;
 }
+
+//Media queries
+@mixin media($min-w, $max-w:false){
+	@if $max-w {
+		@media all and (min-width: $min-w) and (max-width: $max-w) {
+			@content;
+		}
+	} @else {
+		@media all and (min-width: $min-w) {
+			@content;
+		}
+	}
+}

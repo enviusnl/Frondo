@@ -2,21 +2,25 @@
 	@include column(12);
 }
 
-@media all and (min-width: $tablet-container-width) and (max-width: $desktop-container-width) {
+@include media(map-get($container-widths, "tablet"), map-get($container-widths, "desktop")) {
 
 	.col {
-		&.tablet-6 {
-			@include column(6);
+		@each $col-size in $grid-cols {
+			&.tablet-#{$col-size} {
+				@include column(6);
+			}
 		}
 	}
 
 }
 
-@media all and (min-width: $desktop-container-width) {
+@include media(map-get($container-widths, "desktop")) {
 
 	.col {
-		&.desktop-4 {
-			@include column(4);
+		@each $col-size in $grid-cols {
+			&.desktop-#{$col-size} {
+				@include column($col-size);
+			}
 		}
 	}
 
