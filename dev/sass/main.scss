@@ -9,14 +9,14 @@
 //Third-party styling and modules
 @import "plugins/semantic-gs";
 
-//General Styling
+//Globals
 //
 //General styling you want to be able to use everywhere
 //without having to be in a specific context
 @import "globals/_all";
 
-//Partials
+//Specifics
 //
 //Specific styling for specific contexts
 //e.g. page specific styling
-@import "partials/_all";
+@import "specifics/_all";
