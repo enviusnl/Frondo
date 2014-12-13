@@ -68,21 +68,6 @@ a {
 	}
 }
 
-a.btn,input[type="submit"] {
-	display: block;
-	padding: $padding-s;
-
-	background-color: $accent;
-	color: $white;
-
-	@include border(false, $accent-dark);
-	border-radius: $border-radius;
-
-	&:hover {
-		background-color: $accent-dark;
-	}
-}
-
 ul {
 	padding-left: 17px;
 	li {

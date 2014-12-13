@@ -11,10 +11,12 @@
 
 //General Styling
 //
-//General styling like components (e.g. buttons, body styling etc.)
+//General styling you want to be able to use everywhere
+//without having to be in a specific context
 @import "globals/_all";
 
 //Partials
 //
-//Specific styling (e.g. page specific styling)
+//Specific styling for specific contexts
+//e.g. page specific styling
 @import "partials/_all";

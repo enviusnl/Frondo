@@ -1,4 +1,11 @@
-//General styling
-@import "globals/theme";
-@import "globals/typography";
-@import "globals/columns";
+//General components
+//
+//e.g. the body styling
+@import "theme";
+@import "typography";
+@import "columns";
+
+//Component Styling
+//
+//e.g. buttons
+@import "components/buttons";

@@ -1,0 +1,19 @@
+.btn {
+	font-size: $size-s;
+
+	display: inline-block;
+	padding: $padding-s;
+
+	background-color: $accent;
+	color: $white;
+
+	@include border($color: $accent-dark);
+	border-radius: $border-radius;
+
+	cursor: pointer;
+
+	&:hover {
+		color: $white;
+		background-color: $accent-dark;
+	}
+}
