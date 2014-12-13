@@ -1,12 +1,20 @@
 //Modules
+//
+//Stuff that doesnt effect the output CSS directly
 @import "modules/vars";
 @import "modules/mixins";
 
 //Plugins
+//
+//Third-party styling and modules
 @import "plugins/semantic-gs";
 
 //General Styling
+//
+//General styling like components (e.g. buttons, body styling etc.)
 @import "globals/_all";
 
 //Partials
+//
+//Specific styling (e.g. page specific styling)
 @import "partials/_all";
