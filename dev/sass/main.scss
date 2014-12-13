@@ -2,8 +2,11 @@
 @import "modules/vars";
 @import "modules/mixins";
 
-//Vendor
-@import "vendor/semantic-gs";
+//Plugins
+@import "plugins/semantic-gs";
+
+//General Styling
+@import "globals/_all";
 
 //Partials
 @import "partials/_all";
