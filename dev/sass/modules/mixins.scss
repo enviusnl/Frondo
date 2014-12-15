@@ -27,7 +27,7 @@
 
 	} @else if not $min-width and $max-width {
 
-		@media #{$type} and (max-width: $min-width) {
+		@media #{$type} and (max-width: $max-width) {
 			@content;
 		}
 
