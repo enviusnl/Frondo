@@ -9,21 +9,52 @@ module.exports = function (grunt){
 			webRoot: 'www'
 		},
 
+		// connect: {
+		//  server: {
+		//    options: {
+		//      livereload: true,
+		//      hostname: '127.0.0.1',
+		//      port: 9000,
+		//      base: '<%= options.webRoot %>/',
 
-		connect: {
-			server: {
-				options: {
-					livereload: true,
-					hostname: '127.0.0.1',
-					port: 9000,
-					base: '<%= options.webRoot %>/'
+		//      middleware: function (connect) {
+		//        return [
+		//          require('connect-livereload')()
+		//        ];
+		//      }
+		//    }
+		//  }
+		// },
+
+		// express: {
+		// 	all: {
+		// 		options: {
+		// 			port: 9000,
+		// 			hostname: 'localhost',
+		// 			bases: '<%= options.webRoot %>',
+		// 			livereload: true,
+		// 		}
+		// 	}
+		// },
+
+		browserSync: {
+			bsFiles: {
+				src: [
+					'<%= options.webRoot %>/css/*.css',
+					'<%= options.webRoot %>/*.html'
+				]
+			},
+			options: {
+				watchTask: true,
+				server: {
+					baseDir: "<%= options.webRoot %>"
 				}
 			}
 		},
 
 		watch: {
 			options: {
-				livereload: true,
+				livereload: true
 			},
 			jade: {
 				files: ['<%= options.devRoot %>/jade/**/*.jade'],
@@ -35,34 +66,37 @@ module.exports = function (grunt){
 			},
 			sass: {
 				files: ['<%= options.devRoot %>/sass/**/*.scss'],
-				tasks: ['sass', 'autoprefixer']
+				tasks: ['sass']
+			},
+			css: {
+				files: ['<%= options.webRoot %>/css/*.css'],
+				tasks: ['autoprefixer']
 			}
 		},
 
-
 		jade: {
-      compile: {
-        options: {
-          data: {
-            debug: false
-          }
-        },
-        files: [{
-          cwd: '<%= options.devRoot %>/jade',
-          src: '*.jade',
-          dest: '<%= options.webRoot %>',
-          ext: '.html',
-          expand: true
-        }]
-      }
-    },
-
+			compile: {
+				options: {
+					data: {
+						debug: false
+					}
+				},
+				files: [{
+					cwd: '<%= options.devRoot %>/jade',
+					src: '*.jade',
+					dest: '<%= options.webRoot %>',
+					ext: '.html',
+					expand: true
+				}]
+			}
+		},
 
 		sass: {
 			dist: {
 				options: {
-	      	style: 'compressed'
-	    	},
+					style: 'compressed',
+					sourcemap: 'none'
+				},
 				files: {
 					'<%= options.webRoot %>/css/bundle.min.css': '<%= options.devRoot %>/sass/main.scss'
 				}
@@ -72,37 +106,36 @@ module.exports = function (grunt){
 		autoprefixer: {
 			options: {
 				expand: true,
-	      flatten: true,
-  			browsers: ['last 2 versions', 'ie 8', 'ie 9']
+				flatten: true,
+				browsers: ['last 2 versions', 'ie 8', 'ie 9']
 			},
-	    all: {
-	      '<%= options.webRoot %>/css/bundle.min.css': '<%= options.webRoot %>/css/bundle.min.css'
-	    }
-	  },
-
+			all: {
+				'<%= options.webRoot %>/css/bundle.min.css': '<%= options.webRoot %>/css/bundle.min.css'
+			}
+		},
 
 		jshint: {
-    	options: {
-      	browser: true, //Web Browser (window, document, etc)
-        strict: true, //Requires all functions run in ES5 Strict Mode
-        unused: true, //Require all defined variables be used
-        undef: true, //Require all non-global variables to be declared (prevents global leaks)
-        quotmark: 'single', //Quotation mark consistency
-        camelcase: true, //Identifiers must be in camelCase
-        eqeqeq: true, //Require triple equals (===) for comparison
-        forin: true, //Require filtering for..in loops with obj.hasOwnProperty()
-        immed: true, //Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
-        indent: 4, //Number of spaces to use for indentation
-        latedef: true, //Require variables/functions to be defined before being used
-        newcap: true, //Require capitalization of all constructor functions e.g. `new F()`
-        noarg: true, //Prohibit use of `arguments.caller` and `arguments.callee`
-        noempty: true, //Prohibit use of empty blocks
-        maxparams: 3, //Max number of formal params allowed per function
-        maxdepth: 4, //Max depth of nested blocks (within functions)
-        predef: ['console', 'B', 'Browserkit']
-    	},
-      all: ['<%= options.devRoot %>/js/src/**/*.js']
-    },
+			options: {
+				browser: true, //Web Browser (window, document, etc)
+				strict: true, //Requires all functions run in ES5 Strict Mode
+				unused: true, //Require all defined variables be used
+				undef: true, //Require all non-global variables to be declared (prevents global leaks)
+				quotmark: 'single', //Quotation mark consistency
+				camelcase: true, //Identifiers must be in camelCase
+				eqeqeq: true, //Require triple equals (===) for comparison
+				forin: true, //Require filtering for..in loops with obj.hasOwnProperty()
+				immed: true, //Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
+				indent: 4, //Number of spaces to use for indentation
+				latedef: true, //Require variables/functions to be defined before being used
+				newcap: true, //Require capitalization of all constructor functions e.g. `new F()`
+				noarg: true, //Prohibit use of `arguments.caller` and `arguments.callee`
+				noempty: true, //Prohibit use of empty blocks
+				maxparams: 3, //Max number of formal params allowed per function
+				maxdepth: 4, //Max depth of nested blocks (within functions)
+				predef: ['console', 'B', 'Browserkit']
+			},
+			all: ['<%= options.devRoot %>/js/src/**/*.js']
+		},
 
 		concat: {
 			js: {
@@ -117,12 +150,24 @@ module.exports = function (grunt){
 					'<%= options.webRoot %>/js/app.min.js': ['<%= options.devRoot %>/js/libs/**/*.js', '<%= options.devRoot %>/js/src/**/*.js']
 				}
 			}
+		},
+
+		clean: {
+			html: {
+				src: ['<%= options.webRoot %>/*.html']
+			},
+			css: {
+				src: ['<%= options.webRoot %>/css/**/*.css']
+			},
+			js: {
+				src: ['<%= options.webRoot %>/js/**/*.js']
+			}
 		}
 
 	});
 
 	require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('default', ['connect', 'watch']);
-  grunt.registerTask('build', ['sass', 'autoprefixer', 'jshint', 'uglify']);
+	grunt.registerTask('build', ['clean', 'jade', 'sass', 'autoprefixer', 'jshint', 'uglify']);
+	grunt.registerTask('default', ['build', 'browserSync', 'watch']);
 }
