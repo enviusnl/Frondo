@@ -1,4 +1,4 @@
-module.exports = function (grunt){
+module.exports = function (grunt) {
 
 	grunt.initConfig({
 
@@ -8,34 +8,6 @@ module.exports = function (grunt){
 			devRoot: 'dev',
 			webRoot: 'www'
 		},
-
-		// connect: {
-		//  server: {
-		//    options: {
-		//      livereload: true,
-		//      hostname: '127.0.0.1',
-		//      port: 9000,
-		//      base: '<%= options.webRoot %>/',
-
-		//      middleware: function (connect) {
-		//        return [
-		//          require('connect-livereload')()
-		//        ];
-		//      }
-		//    }
-		//  }
-		// },
-
-		// express: {
-		// 	all: {
-		// 		options: {
-		// 			port: 9000,
-		// 			hostname: 'localhost',
-		// 			bases: '<%= options.webRoot %>',
-		// 			livereload: true,
-		// 		}
-		// 	}
-		// },
 
 		browserSync: {
 			bsFiles: {
@@ -53,9 +25,6 @@ module.exports = function (grunt){
 		},
 
 		watch: {
-			options: {
-				livereload: true
-			},
 			jade: {
 				files: ['<%= options.devRoot %>/jade/**/*.jade'],
 				tasks: ['jade']
@@ -65,13 +34,13 @@ module.exports = function (grunt){
 				tasks: ['jshint', 'concat']
 			},
 			sass: {
-				files: ['<%= options.devRoot %>/sass/**/*.scss'],
-				tasks: ['sass']
-			},
-			css: {
-				files: ['<%= options.webRoot %>/css/*.css'],
-				tasks: ['autoprefixer']
+				files: ['<%= options.devRoot %>/sass/**/*.sass'],
+				tasks: ['sass', 'autoprefixer']
 			}
+			// css: {
+			// 	files: ['<%= options.webRoot %>/css/**/*.css'],
+			// 	tasks: ['autoprefixer']
+			// }
 		},
 
 		jade: {
@@ -94,11 +63,15 @@ module.exports = function (grunt){
 		sass: {
 			dist: {
 				options: {
-					style: 'compressed',
-					sourcemap: 'none'
+					style: 'expanded',
+					sourcemap: 'none',
+					require: [
+						'susy',
+						'breakpoint'
+					]
 				},
 				files: {
-					'<%= options.webRoot %>/css/bundle.min.css': '<%= options.devRoot %>/sass/main.scss'
+					'<%= options.webRoot %>/css/main.min.css': '<%= options.devRoot %>/sass/main.sass'
 				}
 			}
 		},
@@ -107,10 +80,11 @@ module.exports = function (grunt){
 			options: {
 				expand: true,
 				flatten: true,
-				browsers: ['last 2 versions', 'ie 8', 'ie 9']
+				browsers: ['last 20 versions', 'ie 8', 'ie 9'],
 			},
 			all: {
-				'<%= options.webRoot %>/css/bundle.min.css': '<%= options.webRoot %>/css/bundle.min.css'
+				src: '<%= options.webRoot %>/css/main.min.css',
+				dest: '<%= options.webRoot %>/css/main.min.css'
 			}
 		},
 
@@ -170,4 +144,4 @@ module.exports = function (grunt){
 
 	grunt.registerTask('build', ['clean', 'jade', 'sass', 'autoprefixer', 'jshint', 'uglify']);
 	grunt.registerTask('default', ['build', 'browserSync', 'watch']);
-}
+};
