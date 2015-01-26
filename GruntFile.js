@@ -71,7 +71,7 @@ module.exports = function (grunt) {
 					]
 				},
 				files: {
-					'<%= options.webRoot %>/css/main.min.css': '<%= options.devRoot %>/sass/main.sass'
+					'<%= options.webRoot %>/css/main.min.css': '<%= options.devRoot %>/sass/main.scss'
 				}
 			}
 		},
